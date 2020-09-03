@@ -17,7 +17,7 @@ Chúng ta xem hình dưới:
 ![](./PIKs/OOP06_ hierarchy1.PNG)
 
 Dấu mũi tên chỉ mối quan hệ `IS-A` (dịch đại khái: là một), chẳng hạn như `Circle` is a `Ellipse` (Cirlce là một Ellipse). Ngoài ra còn có mối quan hệ `has a` trong composition mà chúng ta chưa đề cập ở đây.
-<br>Các property và method trong các clas có thể được `inherit` (thừa kế), `extend` (mở rộng) hoặc `override` (ghi đè, hình như chỗ khác dịch là nạp chồng).
+<br>Các property và method trong các clas có thể được `inherit` (thừa kế), `extend` (mở rộng) hoặc `override` (ghi đè, hình như chỗ khác dịch là nạp chồng), chúng ta sẽ tìm hiểu thêm ở các phần dưới.
 
 Hình bên dưới là một vài thuật ngữ tiếng Anh, mình không dịch ra mà để nguyên.
 ![](./PIKs/OOP06_ hierarchy2.PNG)
@@ -236,10 +236,80 @@ class Student(Person):
 	pass
 ```
 
+Ở [phần 03](https://votatdat.github.io/Python/OOP03), chúng ta đã so sánh `__repr__` và `__str__`, chúng ta đã thấy rằng `__repr__` sử dụng được cho tất cả các hàm `print()`, `str()` và `repr()` lẫn gọi instance trực tiếp, còn `__str__` chỉ dùng được cho hàm `print()` và `str()`. Tới đây chúng ta đã giải thích được: bằng cách nào đó, `__repr__` đã thừa kế cách gọi hàm `print()` và `str()` từ `__str__` và được viết thêm cách gọi hàm `repr()`.
+
+Chúng ta xem thêm ví dụ ở dưới, để cẩn thận hơn khi sử dụng override, các bạn có thể download `OOP06_override01.py` về [ở đây](./code/OOP06_override01.py)
+
+```python
+class Shape:
+    def __init__(self, name):
+        self.name = name
+        
+    def info(self):
+         return f'Shape.info called for Shape({self.name})'
+    
+    def extended_info(self):
+        return f'Shape.extended_info called for Shape({self.name})'
+    
+class Polygon(Shape):
+    def __init__(self, name):
+        self.name = name  # we'll come back to this later in the context of using the super()
+        
+    def info(self):
+        return f'Polygon info called for Polygon({self.name})'
+```
+
+Chúng ta import file vào rồi chạy thử:
+
+```python
+>>> from OOP06_override01 import Shape, Polygon
+>>> p = Polygon('square')
+>>> p.info()
+'Polygon info called for Polygon(square)'
+>>> p.extended_info()
+'Shape.extended_info called for Shape(square)'
+```
+
+Điều này cũng không có gì lạ, p là instance của Polygon, khi gọi `info()` thì method này được override ở class Polygon nên giá trị trả về phải từ method này.
+<br>Còn khi gọi `extended_info()` thì chúng ta không viết method này trong Polygon nên Polygon thừa kế lại từ Shape.
+<br>Câu hỏi là: nếu chúng ta gọi `info()` ở bên trong `extended_info()` thì method `info()` nào sẽ được gọi?
+
+Chúng ta edit một chút, lưu lại tên mới `OOP06_override02.py`, các bạn có thể download [ở đây](./code/OOP06_override02.py)
+
+```python
+class Shape:
+    def __init__(self, name):
+        self.name = name
+        
+    def info(self):
+         return f'Shape.info called for Shape({self.name})'
+    
+    def extended_info(self):
+        return f'Shape.extended_info called for Shape({self.name})', self.info() # Thêm chút xíu ở đây
+    
+class Polygon(Shape):
+    def __init__(self, name):
+        self.name = name  # we'll come back to this later in the context of using the super()
+        
+    def info(self):
+        return f'Polygon info called for Polygon({self.name})'
+```
+
+```python
+>>> from OOP06_override02 import Shape, Polygon
+>>> p = Polygon('square')
+>>> p.info()
+'Polygon info called for Polygon(square)'
+>>> p.extended_info()
+('Shape.extended_info called for Shape(square)', 'Polygon info called for Polygon(square)')
+```
+
+Chúng ta thấy rằng, `info()` vẫn được gọi từ class con, dù được gọi ở class cha.
+Đây là điểm phải hết sức chú ý khi viết override, khi object là instance của class con thì self sẽ là class con dù method được gọi nằm ở class cha.
 
 
-
-
+## 04. Extending
+Chúng ta đã đề cập `inherit` và `override`, chúng ta còn có thêm `extend` nữa.
 <br>
 <br>
 <br>
