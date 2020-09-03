@@ -48,5 +48,8 @@ Tốt hơn là dùng `context manager` để xóa tài nguyên.
 Ví dụ minh họa sẽ được thêm vào sau.
 
 ## 08. \_\_format\_\_ method
-Chúng ta dùng hàm `format()` để định dạng kiểu, 
+Chúng ta dùng hàm `format()` để định dạng một kiểu nào đó: number, date...
+
+
+ 
 (Sẽ viết và cập nhật tiếp)
