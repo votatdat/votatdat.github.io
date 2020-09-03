@@ -1,8 +1,7 @@
 ---
-layout: page
+layout: post
 title: Python OOP
 subtitle: Phần 01: Giới thiệu về Class (phần 1)
-
 comments: true
 ---
 
