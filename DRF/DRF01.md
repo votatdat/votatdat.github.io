@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: post
 title: DRF
 subtitle: Phần 01: tạo Book model
+tags: [Python, Django, DRF]
 comments: true
 ---
 
