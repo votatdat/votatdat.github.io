@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: DRF
 subtitle: Phần 01: tạo Book model
 tags: [Python, Django, DRF]
