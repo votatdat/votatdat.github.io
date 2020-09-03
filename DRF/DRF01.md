@@ -1,9 +1,7 @@
 ---
-layout: post
+layout: page
 title: DRF
 subtitle: Phần 01: tạo Book model
-tags: [Python, Django, DRF]
-comments: true
 ---
 
 * [List đầy đủ](https://votatdat.github.io/DRF/DRF_list) 
