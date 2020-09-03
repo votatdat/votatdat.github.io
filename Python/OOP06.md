@@ -188,15 +188,13 @@ Tuy nhiên, khi chúng ta viết `__init__` trong class là chúng ta đã overr
 False
 ```
 
-<br>
+
 ## 03. Overriding
 Class con thừa kế các attribute và method ở class cha, nhưng chúng ta có thể định nghĩa lại các điều này ở class con, cái này gọi là `overriding`.
-
 ![](./PIKs/OOP06_ override1.PNG)
 
 Ở trên, `say_hello()` đã được override ở class Student, còn `say_bye()` thì được thừa kế.
 <br> Tương tự, chúng ta coi ví dụ dưới:
-
 ![](./PIKs/OOP06_ override2.PNG)
 
 Chúng ta thấy rằng, trong class Person, `__init__()` và `__repr__` đã override các hàm này ở object, class Student thừa kế lại class Person, và override `__repr__` từ Person, đồng thời thừa kế lại `__init__`.
