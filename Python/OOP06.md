@@ -187,6 +187,9 @@ Tuy nhiên, khi chúng ta viết `__init__` trong class là chúng ta đã overr
 False
 ```
 
+<br>
+## 03. Overriding
+test
 
 <br>
 <br>
