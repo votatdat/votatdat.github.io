@@ -176,6 +176,7 @@ Và vì chúng ta không viết `__eq__` nên id của nó trong class và trong
 >>> id(Person.__init__) == id(object.__init__)
 True
 ```
+
 Tuy nhiên, khi chúng ta viết `__init__` trong class là chúng ta đã override nó, id sẽ thay đổi:
 
 ```python
@@ -189,7 +190,55 @@ False
 
 <br>
 ## 03. Overriding
-test
+Class con thừa kế các attribute và method ở class cha, nhưng chúng ta có thể định nghĩa lại các điều này ở class con, cái này gọi là `overriding`.
+
+![](./PIKs/OOP06_ override1.PNG)
+
+Ở trên, `say_hello()` đã được override ở class Student, còn `say_bye()` thì được thừa kế.
+<br> Tương tự, chúng ta coi ví dụ dưới:
+
+![](./PIKs/OOP06_ override2.PNG)
+
+Chúng ta thấy rằng, trong class Person, `__init__()` và `__repr__` đã override các hàm này ở object, class Student thừa kế lại class Person, và override `__repr__` từ Person, đồng thời thừa kế lại `__init__`.
+
+Lưu ý rằng:
+- Object thì có property `__class__` trả lại class mà tạo ra object này.
+- Class thì có property `__name__` trả lại một string chưa tên của class.
+
+Giả sử chúng ta có đoạn code dưới:
+
+```python
+class Person:
+	def __init__(self, name):
+		self.name = name
+	
+	def __repr__(self):
+		return f'Person(name={self.name})'
+		
+
+class Student(Person):
+	def __repr__(self):
+		return f'Student(name={self.name})'
+```
+
+Nó hơi dài dòng, chúng ta có thể viết lại cho gọn hơn:
+
+```python
+class Person:
+	def __init__(self, name):
+		self.name = name
+	
+	def __repr__(self):
+		return f'{self.__class__.__name__}(name={self.name})'
+
+
+class Student(Person):
+	pass
+```
+
+
+
+
 
 <br>
 <br>
