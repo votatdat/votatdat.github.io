@@ -109,6 +109,7 @@ Chúng ta chạy lại `migrate` để đồng bộ với database.
 python manage.py migrate
 {% endhighlight %}
 
+
 ## Tạo Models
 Chúng ta tạo một model Book có 4 field `title`, `subtitle`, `author`, `isbn`:
 
@@ -132,6 +133,7 @@ Chúng ta chạy lại `migrate` để đồng bộ với database.
 python manage.py makemigrations books
 python manage.py migrate
 {% endhighlight %}
+
 
 ## Admin
 Việc đầu tiên, chúng ta tạo `superuser`:
@@ -181,6 +183,7 @@ class BookListView(ListView):
 	template_name = 'book_list.html'
 {% endhighlight %}
 
+
 ## URLs
 
 Trước tiên, chúng ta thêm url ở project chính, ở folder `library_project`:
@@ -229,20 +232,20 @@ touch books/templates/books/book_list.html
 {% endhighlight %}
 
 
-{% highlight python %}
+```python
 <!-- books/templates/books/book_list.html -->
 <h1>All books</h1>
 
-{ % for book in object_list % } 
+{% for book in object_list %} 
   <ul>
     <li>Title: {{ book.title }}</li>
     <li>Subtitle: {{ book.subtitle }}</li>
     <li>Author: {{ book.author }}</li>
     <li>ISBN: {{ book.isbn }}</li>
   </ul>
-{ % endfor % }
+{% endfor %}
 # Do vấn đề hiển thị nên nếu copy-paste đoạn code trên thì nhớ bỏ khoảng trắng giữa `{` và `%`
-{% endhighlight %}
+```
 
 `object_list` là tên của object được tạo ra từ model ở `ListView`, chúng ta duyệt hết object_list và in ra kết quả ở file html.
 
