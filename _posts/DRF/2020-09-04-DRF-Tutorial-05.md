@@ -19,11 +19,11 @@ tags: [Python, Django, DRF]
 ## Tạo user mới
 Chúng ta runserver, vào trang admin http://127.0.0.1:8000/admin/, tạo vài user mới, chẳng hạn như ở dưới:
 
-![](./PIKs/DRF05_adduser1.PNG)
+![](/Piks/DRF/DRF05_adduser1.PNG)
 
 Chúng ta tạo luôn vài user để test thử các chức năng:
 
-![](./PIKs/DRF05_adduser2.PNG)
+![](/Piks/DRF/DRF05_adduser2.PNG)
 
 ## Thêm chức năng login vào trình duyệt
 Cho tới nay chúng ta đã có vài user, khi muốn thay đổi user thì phải nhảy vào trang admin logout ra rồi login lại, rồi vào lại trang API rất phiền hà.
@@ -46,7 +46,7 @@ urlpatterns = [
 
  Bây giờ khi vào lại trang http://127.0.0.1:8000/api/v1/ sẽ có username và mũi tên hướng xuống ở góc phải phía trên, có thể login logout tiện hơn.
  
-![](./PIKs/DRF05_inout.PNG)
+![](/Piks/DRF/DRF05_inout.PNG)
 
 ## Project-level Permissions
 Ở [phần 04](https://votatdat.github.io/DRF/DRF04), trong file `settings.py`, chúng ta đã thêm đoạn code dưới:

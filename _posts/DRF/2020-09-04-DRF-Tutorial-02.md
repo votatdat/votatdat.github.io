@@ -171,7 +171,7 @@ Kết quả:
 
 Hoặc mở trình duyệt, gõ  http://127.0.0.1:8000/api/, kết quả: 
 
-![](./PIKs/DRF02_APIresult.PNG)
+![](/Piks/DRF/DRF02_APIresult.PNG)
 
 
 Như vậy, chúng ta đã tạo được một API đơn giản, sử dụng REST Framework.

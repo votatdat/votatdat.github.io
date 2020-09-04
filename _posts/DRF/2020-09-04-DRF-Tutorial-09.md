@@ -14,7 +14,7 @@ tags: [Python, Django, DRF]
 
 Cho tới nay, chúng ta cũng đã xây dựng kha khá API endpoint:
 
-![](./PIKs/DRF09_endpoints.PNG)
+![](/Piks/DRF/DRF09_endpoints.PNG)
 
 `Schema` là dạng tài liệu cho máy tính đọc, liệt kê ra toàn bộ API endpoint, URLs và HTTP Verb (GET, POST, PUT, DELETE v.v...)
 <br>`Documentation` là tài liệu được thêm vào schema để dễ hơn cho người đọc và sử dụng.
@@ -57,7 +57,7 @@ urlpatterns = [
 Chúng ta runserver, vào đường dẫn http://127.0.0.1:8000/schema/ để xem kết quả:
 <br>Kết quả cho máy tính đọc, giống giống như ở dưới:
 
-![](./PIKs/DRF09_schema.PNG)
+![](/Piks/DRF/DRF09_schema.PNG)
 
 ## Documentation
 Schema ở trên chỉ dành cho máy tính đọc, còn để người đọc chúng ta cần một giao diện thân thiện hơn.
@@ -97,7 +97,7 @@ REST_FRAMEWORK = {
 
 Chúng ta runserver, vào đường dẫn http://127.0.0.1:8000/docs/ để xem kết quả:
 
-![](./PIKs/DRF09_doc1.PNG)
+![](/Piks/DRF/DRF09_doc1.PNG)
 
 Chúng ta có thể sửa thêm một chút:
 
@@ -128,7 +128,7 @@ urlpatterns = [
 
 Giao diện đẹp hơn một chút, các bạn ấn thử vào `Interact` rồi `SEND REQUEST` để thử, các bạn hãy vọc thử với Documentation mới này:
 
-![](./PIKs/DRF09_doc2.PNG)
+![](/Piks/DRF/DRF09_doc2.PNG)
 
 ## Django REST Swagger
 Documentation ở trên đã khá tốt, tuy nhiên chúng ta vẫn có thể thử [Swagger](https://swagger.io/) của thư viện [Django REST Swagger](https://marcgibbons.com/django-rest-swagger/) để thấy nó còn tốt hơn, và hiện giờ đây được xem là cách tốt nhất để tạo Documentation cho API.
@@ -199,7 +199,7 @@ urlpatterns = [
 
 Chúng ra runserver, vào đường dẫn http://127.0.0.1:8000/swagger-docs xem thử: 
 
-![](./PIKs/DRF09_doc3.PNG)
+![](/Piks/DRF/DRF09_doc3.PNG)
 
 ## Swagger Log In and Log Out
 Có nhiều cách để customize Swagger trên [Official Documentation](https://django-rest-swagger.readthedocs.io/en/latest/settings/).

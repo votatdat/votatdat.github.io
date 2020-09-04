@@ -115,7 +115,7 @@ python manage.py runserver
 
 Chúng ta vào trang admin http://127.0.0.1:8000/admin/, login bằng username và password đăng ký ở trên, tạo một post đơn giản.
 
-![](./PIKs/DRF03_firstpost.PNG)
+![](/Piks/DRF/DRF03_firstpost.PNG)
 
 ## Tests
 Chúng ta sẽ tạo một file `tests.py` đơn giản để test `Post`, trong thực tế test rất quan trọng, ở đây chúng ta đi nhanh.

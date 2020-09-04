@@ -153,7 +153,7 @@ Chúng ta runserver và vào đường link http://127.0.0.1:8000/api/v1/ để 
 python manage.py runserver
 {% endhighlight %}
 
-![](./PIKs/DRF04_result1.PNG)
+![](/Piks/DRF/DRF04_result1.PNG)
 
 Đây là post mà chúng ta tạo ở trên, nếu các bạn làm từ đầu thì `"id": 1`, nhưng do mình làm vài cái trước rồi xóa nên nó id là 4.
 <br>Các bạn chú ý rằng mỗi khi tạo một post thì id sẽ tự động tăng lên 1, dù xóa đi hết thì các post sau id vẫn tăng thêm chứ không reset.
@@ -161,7 +161,7 @@ python manage.py runserver
 <br>Chúng ta xem `Allow` để biết chúng ta được làm gì, ở đây gồm `GET`, `POST`, `HEAD`, `OPTIONS`.
 <br>Chúng ta vào thêm id vào đường link ở trên để xem cụ thể, chẳng hạn  http://127.0.0.1:8000/api/v1/4/
 
-![](./PIKs/DRF04_result2.PNG)
+![](/Piks/DRF/DRF04_result2.PNG)
 
 Ở đây, có thêm `PUT` và `PATCH` để edit post, có thêm `DELETE` để xóa bài viết, nhưng không có `POST`.
 

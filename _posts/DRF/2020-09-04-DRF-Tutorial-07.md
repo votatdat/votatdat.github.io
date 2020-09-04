@@ -157,21 +157,21 @@ urlpatterns = [
 
 Vậy là xong, chúng ra runserver và vào đường link http://127.0.0.1:8000/api/v1/rest-auth/registration/
 
-![](./PIKs/DRF07_register.PNG)
+![](/Piks/DRF/DRF07_register.PNG)
 
 ## Token
 Chúng ta tạo thử 1 user mới:
 
-![](./PIKs/DRF07_register2.PNG)
+![](/Piks/DRF/DRF07_register2.PNG)
 
 Ấn POST và kết quả: 
 
-![](./PIKs/DRF07_register3.PNG)
+![](/Piks/DRF/DRF07_register3.PNG)
 
 Vậy là ngon lành cành đào, Server đã trả về `HTTP 201 Created`1 và tạo ra `key` (token), dùng 3rd party package đỡ mệt hẳn.
 <br>Chúng ta xem terminal, chúng ta sẽ thấy có 1 email gửi cho user để xác nhận tài khoản (đây là do `EMAIL_BACKEND` mà chúng ta set ở trên)
 
-![](./PIKs/DRF07_register4.PNG)
+![](/Piks/DRF/DRF07_register4.PNG)
 
 Các bạn hãy vào trang admin, dùng superuser account và vô mục TOKENS để xem, sẽ thấy trong đó cũng có một token y hệt như token được tạo ở registration API.
 <br>Lưu ý rằng chúng ta chỉ thấy token cho user test chúng ta mới tạo, không thấy token bất kỳ user nào khác vì lúc tạo các user khác, `django-allauth` chưa được thêm vào.
