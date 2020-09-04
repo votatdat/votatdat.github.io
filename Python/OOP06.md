@@ -478,4 +478,4 @@ Chúng ta thấy rằng **self.apr** thì cho phép override, còn **self.__clas
 <br>Nếu chúng ta muốn an toàn luôn sử dụng giá trị apr được khai báo trong class thì nên dùng **self.__class__.apr**.
 <br>Khi viết code chúng ta thường dùng `type(a)` thay cho `a.__class__`, như code trên **self.__class__.apr** sẽ được viết là **type(self).apr**.
 
-Phần này tới đây là kết thúc, chúng ta sẽ tiếp tục Inheritance ở [phần 07](https://votatdat.github.io/Python/OOP07)
+Phần này tới đây là kết thúc, chúng ta sẽ tiếp tục Inheritance ở [phần 07](https://votatdat.github.io/Python/OOP07).
