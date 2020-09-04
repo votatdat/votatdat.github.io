@@ -1,7 +1,11 @@
 ---
 layout: post
-title: DRF
+title: DRF Tutorial
 subtitle: "Phần 02: tạo API cho Book database"
+cover-img: /assets/img/planet.jpg
+thumbnail-img: /assets/img/thum.jpg
+share-img: /assets/img/planet.jpg
+tags: [Python, Django, DRF]
 ---
 
 * [List đầy đủ](https://votatdat.github.io/DRF) 

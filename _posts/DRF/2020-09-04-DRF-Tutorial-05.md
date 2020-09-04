@@ -1,7 +1,11 @@
 ---
 layout: post
-title: DRF
-subtitle: "Phần 05: giới thiệu về `permissions`/`authorization`"
+title: DRF Tutorial
+subtitle: "Phần 05: giới thiệu về permissions/authorization"
+cover-img: /assets/img/planet.jpg
+thumbnail-img: /assets/img/thum.jpg
+share-img: /assets/img/planet.jpg
+tags: [Python, Django, DRF]
 ---
 
 * [List đầy đủ](https://votatdat.github.io/DRF) 
