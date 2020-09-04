@@ -157,15 +157,15 @@ Chúng ta mở trình duyệt, vào http://127.0.0.1:8000/admin và login với 
 
 Chúng ta sẽ thấy:
 
-![](/Piks/DRF/DRF01_book.PNG)
+![](/assets/piks/DRF/DRF01_book.PNG)
 
 Sau đó chúng ta sẽ thêm vào 1 hay vài cuốn sách, ví dụ như ở dưới:
 
-![](/Piks/DRF/DRF01_addbook.PNG)
+![](/assets/piks/DRF/DRF01_addbook.PNG)
 
-![](/Piks/DRF/DRF01_addbook2.PNG)
+![](/assets/piks/DRF/DRF01_addbook2.PNG)
 
-![](/Piks/DRF/DRF01_addbook3.PNG)
+![](/assets/piks/DRF/DRF01_addbook3.PNG)
 
 <br>
 ## Views
@@ -251,7 +251,7 @@ touch books/templates/books/book_list.html
 
 Chúng ta runserver, mở trình duyệt và chạy  http://127.0.0.1:8000/. Kết quả:
 
-![](/Piks/DRF/DRF01_result.PNG)
+![](/assets/piks/DRF/DRF01_result.PNG)
 
 Tới đây là kết thúc phần 01, ở trên là cách tạo và hiện thị database lên trình duyệt.
 <br>[Phần 02](https://votatdat.github.io/2020-09-04-DRF-Tutorial-02) sẽ trình bày cách sự dụng DRF căn bản, hiện thị nội dung như trên ở dạng JSON.

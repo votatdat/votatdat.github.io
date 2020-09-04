@@ -18,7 +18,7 @@ Danh sách đầy đủ bài học **[ở đây](https://votatdat.github.io/DRF)
 ## User Endpoints
 Chúng ta đã có những endpoint sau:
 
-![](/Piks/DRF/DRF08_endpoints.PNG)
+![](/assets/piks/DRF/DRF08_endpoints.PNG)
 
 Chúng ta chỉ tạo có 2 endpoint đầu tiên, `django-rest-auth` cung cấp 5 cái còn lại.
 <br>Bây giờ chúng ta sẽ thêm 2 endpoint để liệt kê danh sách toàn bộ user, và từng user.
@@ -108,11 +108,11 @@ urlpatterns = [
 
 Vậy là xong, chúng ta runserver vào http://127.0.0.1:8000/api/v1/users/, kết quả đại khái như ở dưới:
 
-![](/Piks/DRF/DRF08_users.PNG)
+![](/assets/piks/DRF/DRF08_users.PNG)
 
 Chúng ta xem các id, chọn một id nào nào đó rồi xem chi tiết, chẳng hạn chọn user có id=2, http://127.0.0.1:8000/api/v1/users/2/
 
-![](/Piks/DRF/DRF08_userdetail.PNG)
+![](/assets/piks/DRF/DRF08_userdetail.PNG)
 
 
 ## Viewsets
@@ -174,7 +174,7 @@ Các bạn hãy vào các link sau check lại:
 
 Lưu ý , chúng ta xem http://127.0.0.1:8000/api/v1/users/2
 
-![](/Piks/DRF/DRF08_user2.PNG)
+![](/assets/piks/DRF/DRF08_user2.PNG)
 
 1. Ở view cũ nó là **User Detail**, giờ chuyển thành **User Instance**
 2. User đang login là test nhưng có quyền delete user khác, đây là option mặc định của `ModelViewSet` gồm:  .list(), .retrieve(), .create(), .update(), .partial_update(), và .destroy().

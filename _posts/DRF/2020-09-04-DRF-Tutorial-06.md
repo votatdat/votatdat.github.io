@@ -35,7 +35,7 @@ Luồng request/response của nó đại loại như vầy:
 
 Đại khái như hình dưới:
 
-![](/Piks/DRF/DRF06_basicauth.PNG)
+![](/assets/piks/DRF/DRF06_basicauth.PNG)
 
 Ưu điểm:
 - Đơn giản
@@ -91,7 +91,7 @@ Nhược điểm:
 
 Luồng request/response đại khái như hình dưới:
 
-![](/Piks/DRF/DRF06_tokenauth.PNG)
+![](/assets/piks/DRF/DRF06_tokenauth.PNG)
 
 Có nhiều 3rd party package có thể được thêm vào để hỗ trợ DRF, chẳng hạn JSON Web Tokens (JWTs), Auth0.
 
@@ -139,11 +139,11 @@ python manage.py migrate
 python manage.py runserver
 {% endhighlight %}
 
-![](/Piks/DRF/DRF06_token.PNG)
+![](/assets/piks/DRF/DRF06_token.PNG)
 
 Khi nhấn vào Tokens, chúng ta sẽ không thấy có token nào, vì app này được tạo sau khi các user được tạo.
 
-![](/Piks/DRF/DRF06_token2.PNG)
+![](/assets/piks/DRF/DRF06_token2.PNG)
 
 
 Phần này tạm thời tới đây, chi tiết hơn phần `Authentication` sẽ ở [Phần 07](https://votatdat.github.io/2020-09-04-DRF-Tutorial-07).
