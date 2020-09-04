@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python OOP
-subtitle: Phần 07: Giới thiệu về Single Inheritance (phần 2).
+subtitle: Phần 07 Giới thiệu về Single Inheritance (phần 2).
 tags: [Python, OOP]
 comments: true
 ---
