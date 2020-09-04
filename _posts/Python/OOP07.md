@@ -1,0 +1,167 @@
+---
+layout: page
+title: Python OOP
+subtitle: Phần 07: Giới thiệu về Single Inheritance (phần 2).
+comments: true
+---
+
+* [List đầy đủ](https://votatdat.github.io/Python/Python_list) 
+<br>
+<br>
+
+## 05. Delegate to parent
+`Delegate to parent` đại khái như là giao phó cho class cha. Ở [phần 06](https://votatdat.github.io/Python/OOP06), chúng ta đã thấy một đoạn code khá dài dòng:
+
+```python
+class Account:
+    apr = 3.0
+    
+    def __init__(self, account_number, balance):
+        self.account_number = account_number
+        self.balance = balance
+        self.account_type = 'Generic Account'
+        
+    def calc_interest(self):
+        return f'Calc interest on {self.account_type} with APR = {self.apr}'
+        
+class Savings(Account):
+    apr = 5.0
+    
+    def __init__(self, account_number, balance):
+        self.account_number = account_number  # Tạm thời chỗ này hơi dài dòng, sẽ giới thiệu sau.
+        self.balance = balance
+        self.account_type = 'Savings Account'
+```
+
+Rõ ràng là, `__init__` được override ở class Savings là class con của Account, nhưng code của nó thì gần như y hệt. Hoặc như ở ví dụ dưới:
+
+```python
+class Person:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+
+class Student(Person):
+	def __init__(self, name, age, major):
+		self.major = major
+		self.name = name
+		self.age = age
+```
+
+Chúng ta cũng thấy rằng, `name` và `age` được lặp lại, chúng ta có thể gọi thẳng method từ class cha, dùng `super()`: **super().method()**. Ví dụ:
+
+```python
+class Person:
+	def sing(self):
+		return "I'm a lumberjack and I'm OK"
+		
+		
+class Student(Person):
+	def sing(self):
+		return super().sing() + '\n' + "I sleep all night and I work all day" 
+		
+
+s = Student()
+print(s.sing()) 
+
+I'm a lumberjack and I'm OK
+I sleep all night and I work all day
+```
+
+Lưu ý: nhớ phải dùng **super().sing()**, nếu quên lỡ tay xài **self.sing()** sẽ bị vòng lặp vô hạn.
+<br>Giả sử chúng ta có 3 class: class ông Person có `sing()`, class con của Person là class cha Student không có `sing()`, và class con của Student là class cháu MusicStudent lại có `sing()`.
+<br>Câu hỏi: khi `sing()` ở class cháu MusicStudent gọi `super().sing()` thì nó có gọi được `sing()` ở class ông Person hay không?
+
+```python
+class Person:
+	def sing(self):
+		return "I'm a lumberjack and I'm OK"
+
+class Student(Person):
+	pass
+	
+class MusicStudent(Student):
+	def sing(self):
+		return super().sing() + '\n' + "I sleep all night and I work all day" 
+``` 
+
+Điều này đương nhiên là được, lí do cũng khá dễ hiểu, Student thừa kế lại Person nên bản thân class Student không có code gì nhưng thực sự có thừa kế `sing()` từ Person, khi gọi `super().sing()` ở MusicStudent thì nó sẽ gọi `sing()` ở Student và `sing()` ở Student có tồn tại.
+
+Cái ví dụ `_init__` ở trên kia thì nên viết lại như ở dưới:
+
+```python
+class Person:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+
+class Student:
+	def __init__(self, name, age, major):
+		super().__init__(name, age)
+		self.major = major
+```
+
+Khi chúng ta giao phó cho class cha, chúng ta không bắt buộc nhưng nên gọi `super()__init__` **TRƯỚC** khi gán `major`. 
+<br>Chúng ta xem ví dụ ở dưới:
+
+```python
+>>> class Person:
+...     def __init__(self, name, age):
+...             self.name = name
+...             self.age = age
+...             self.major = 'N/A'
+...
+>>> class Student(Person):
+...     def __init__(self, name, age, major):
+...             self.major = major
+...             super().__init__(name, age)
+...
+>>>
+>>> s = Student('douglas', 42, 'literature')
+>>> s.name
+'douglas'
+>>> s.age
+42
+>>> s.major
+'N/A'
+```
+
+Chúng ta thấy rằng `s.major` là `'N/A'` chứ không phải là `'literature'`, lí do là: ban đầu 'literature' đã được gán vào s.major rồi, nhưng sao đó gọi `super().__init__` thì `__init__` sẽ chạy lại toàn bộ gán ở class Person, do đó 'N/A' lại được gán một lần nữa vào s.major. 
+<br>Đó là lí do chúng ta nên gọi `super().__init__` trước tiên, để có gán gì mới thì có thể override các giá trị đã được gán ở class cha.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 06. Slots
+<br>
+<br>
+<br>
+
+
+## 07. Slots and Single Inheritance
+
+
+
+
+<br>
+<br>
+<br>
+(Sẽ cập nhật tiếp)

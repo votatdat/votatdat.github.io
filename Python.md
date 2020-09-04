@@ -11,7 +11,7 @@ Dưới đây là danh sách các Python tutorial mà mình đã đọc/học/xe
 
 ### Python OOP
 (Phần này đòi hỏi kiến thức Python OOP căn bản)
-* [Phần 01](https://votatdat.github.io/Python/OOP01): Giới thiệu về Class (phần 1).
+* [Phần 01](https://votatdat.github.io/2020-09-05-OOP01): Giới thiệu về Class (phần 1).
 * [Phần 02](https://votatdat.github.io/Python/OOP02): Giới thiệu về Class (phần 2).
 * [Phần 03](https://votatdat.github.io/Python/OOP03): Giới thiệu về Polymorphism và special methods (phần 1).
 * [Phần 04](https://votatdat.github.io/Python/OOP04): Giới thiệu về Polymorphism và special methods (phần 2). (đang viết)
