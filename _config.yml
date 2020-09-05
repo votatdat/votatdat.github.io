@@ -138,7 +138,7 @@ footer-link-col: "#404040"
 # --- Comments --- #
 
 # To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-# disqus: "votatdat"
+disqus: "votatdat"
 # comments:
 #   provider: "disqus"
 #   disqus:
