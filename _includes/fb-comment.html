@@ -13,15 +13,13 @@
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
   </script>
-  <div
-    class="fb-comments"
-    data-href="{{ page.url | absolute_url }}"
-    data-width="100%"
-    data-numposts="1000"
-  ></div>
-  <noscript
-    >Please enable JavaScript to view the comments powered by
-    Facebook.</noscript
-  >
+  <div class="fb-comments" 
+  <!-- data-href="{{ page.url | absolute_url }}" -->
+    data-href= "https://votatdat.github.io/2020-09-04-DRF-Tutorial-01/"
+    data-width="100%" data-numposts="1000" >
+  </div>
+  <noscript>
+    Please enable JavaScript to view the comments powered by Facebook.
+  </noscript>
 </div>
 {% endif %}
