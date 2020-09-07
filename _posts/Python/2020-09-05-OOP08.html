@@ -19,6 +19,7 @@ Nội dung phần này:
 <br />Danh sách đầy đủ bài học
 <strong> <a href="https://votatdat.github.io/list/Python">ở đây</a> </strong>.
 <br />
+<br />
 <h2>01 Giới thiệu về Descriptors</h2>
 <br />Đầu tiên, giả sử rằng chúng ta có vấn đề cần giải quyết như sau: chúng ta muốn class Point2D 
 mà giá trị trục số luôn luôn là số nguyên. 
@@ -48,6 +49,38 @@ class Point2D:
     self.x = x
     self.y = y
 {% endhighlight %} 
+
+Đoạn code này khá rườm rà và lặp lại, chúng ta có thể chia thành 2 class như ở dưới:
+
+{% highlight python %} 
+class IntegerValue:
+  def get(self):
+    return self._value
+
+  def set(self, value):
+    self._value = int(value)
+  
+  def __init__(self, value=None):
+    if value:
+      self.set(value)
+
+class Point2D:
+  x = IntegerValue()
+  y = IntegerValue()      
+{% endhighlight %}
+
+Chúng ta lưu lại với tên OOP08_ex01.py, import và chạy thử, các bạn có thể down file này 
+<a href="/assets/code/Python/OOP08_ex01.py">ở đây</a>.
+
+{% highlight python %} 
+
+{% endhighlight %}
+
+
+
+
+
+
 
 
 {% highlight python %} 
