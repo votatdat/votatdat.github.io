@@ -1,17 +1,15 @@
-class Person:
-    def __init__(self, name):
-        self.name = name
+class IntegerValue:
+    def get(self):
+        return self._value
 
-    def __repr__(self):
-        return f"Person('{self.name}')"
+    def set(self, value):
+        self._value = int(value)
+
+    def __init__(self, value=None):
+        if value:
+            self.set(value)
 
 
-class Family:
-    def __init__(self, mother, father):
-        self.mother = mother
-        self.father = father
-        self.children = []
-
-    def __iadd__(self, other):
-        self.children.append(other)
-        return self
+class Point2D:
+    x = IntegerValue()
+    y = IntegerValue()
