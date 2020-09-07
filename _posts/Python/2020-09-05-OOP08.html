@@ -16,11 +16,40 @@ Nội dung phần này:
   <li></li>
   <li></li>
 </ul>
-
-<br />
 <br />Danh sách đầy đủ bài học
 <strong> <a href="https://votatdat.github.io/Python">ở đây</a> </strong>.
-
+<br />
 <h2>Giới thiệu về Descriptors</h2>
-<br />Đầu tiên, giả sử rằng chúng ta có vấn đề cần giải quyết như sau: chúng ta
-muốn class Point2D mà giá trị trục số luôn luôn là số nguyên.
+<br />Đầu tiên, giả sử rằng chúng ta có vấn đề cần giải quyết như sau: chúng ta muốn class Point2D 
+mà giá trị trục số luôn luôn là số nguyên. 
+<br>Plain attribute cho x và y không thể đảm bảo điều này, thay vào đó chúng ta dùng 
+<mark>property</mark> với <mark>getter</mark>, <mark>setter</mark>.
+<br>Chúng ta có đoạn code như ở dưới:
+
+{% highlight python %} 
+class Point2D:
+  @property
+  def x(self):
+    return self._x
+  
+  @x.setter
+    def x(self, value):
+      self._x = int(value)
+  
+  @property
+    def y(self):
+      return self._y
+  
+  @y.setter
+  def y(self, value):
+    self._y = int(value)
+  
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+{% endhighlight %} 
+
+
+{% highlight python %} 
+
+{% endhighlight %}
