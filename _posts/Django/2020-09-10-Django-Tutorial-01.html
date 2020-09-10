@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Django tutorial 01
-subtitle: "Giới thiệu về Docker, PostgreSQL trong Django"
+subtitle: "Giới thiệu về Docker, PostgreSQL cùng với Django"
 cover-img: /assets/img/planet.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/planet.jpg
@@ -10,8 +10,8 @@ tags: [Python, Django]
 
 Nội dung phần này:
 <ul>
-  <li>(sẽ cập nhật sau)</li>
-  <li></li>
+  <li>Docker basic</li>
+  <li>Kết nối với PostgreSQL trong Docker</li>
   <li></li>
   <li></li>
   <li></li>
@@ -24,11 +24,13 @@ Thông thường khi tạo một Django project thì database mặc định là 
 hiếm khi nào người ta sử dụng SQLite, người ta hay sử dụng PostgreSQL.
 <br>(Theo mình quan sát thấy thì Python dev thích PostgreSQL, Java dev thì thích MySQL)
 <br>Tutorial này sẽ tạo Docker có chứa PostgreSQL, giới thiệu để đi tiếp cho các tutorial sau.
-
+<br>
 <h3>Cài đặt</h3>
-
+<br>
 {% highlight python %}
-$ mkdir postgresql && cd postgresql # Tạo folder làm việc và vào folder
+$ mkdir code && cd code # Tạo folder chứa code của toàn bộ các tutorial
+
+$ mkdir postgresql && cd postgresql # Tạo folder làm việc cho tutorial này và vào folder
 
 $ pipenv install django==2.2.7 # Cài đặt django bằng pipenv
 
@@ -40,36 +42,82 @@ $ pipenv shell # Vào môi trường
 
 (postgresql) $ python manage.py runserver # runserver
 {% endhighlight %}
-
+<br>
 Sau đó, bật trình duyệt vào trang http://127.0.0.1:8000/ thấy dòng "The install worked successfully! Congratulations!"
 là OK.
 <br> Chúng ta ấn Ctrl + C để để dừng, và dùng lệnh <strong>ls</strong> để xem các file và directory.
-
+<br>
 {% highlight python %}
 (postresql) $ ls
 
-Pipfile Pipfile.lock db.sqlite3 manage.py postgresql_proje
+Pipfile Pipfile.lock db.sqlite3 manage.py postgresql_project
 {% endhighlight %}
-
+<br>
+Vậy là chúng ta đã tạo một project chạy biệt lập trong môi trường ảo dùng pipenv, 
+tiếp theo chúng ta tìm hiểu về Docker.
+<br>
 <h3>Docker</h3>
-Bây giờ, chúng ta sẽ thoát ra và tạo <mark>Dockerfile</mark> và <mark>docker-compose.yml</mark>.
-
+<mark>DockerImage</mark> như một blueprint/pattern của project, còn <mark>Docker container</mark> là một 
+ví dụ/phiên bản của Image đó, <mark>Docker host</mark>  thì như là OS. Có thể có nhiều container 
+chạy dưới cùng một host.
+<br>Bây giờ, chúng ta sẽ thoát ra và tạo <mark>Dockerfile</mark> và <mark>docker-compose.yml</mark>.
+<br>
 {% highlight python %}
-
+(postgresql) $ exit
+$ touch Dockerfile
+$ touch docker-compose.yml
 {% endhighlight %}
-
-
+<br>
+<br>Bây giờ, chúng ta thiết lập các câu lệnh cho <mark>Dockerfile</mark>.
+<br>
 {% highlight python %}
+# Pull base image
+FROM python:3.8
 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set work directory
+WORKDIR /code
+
+# Install dependencies
+COPY Pipfile Pipfile.lock /code/
+RUN pip install pipenv && pipenv install --system
+
+# Copy project
+COPY . /code/
 {% endhighlight %}
-
-
-
-
+<br>
+<br>Mình sẽ giải thích sơ sơ nội dung file Docker file ở bên dưới:
+<ul>
+  <li>Câu lệnh đầu tiên luôn luôn là <strong>FROM</strong>, để cho biết base image mà 
+    chúng ta sử dụng, ở đây máy mình đang Python 3.8</li>
+  <li>Kết nối với PostgreSQL trong Docker</li>
+  <li><strong>PYTHONUNBUFFERED</strong>: để đảm bảo rằng output trong quen thuộc như Python, không bị 
+  buffer bởi Docker.</li>
+  <li><strong>PYTHONDONTWRITEBYTECODE</strong>: để Python không xuất ra byte code, file .pyc</li>
+  <li><strong>WORKDIR</strong>: foler làm việc</li>
+  <li>Về dependencies thì chúng ta sử dụng pipenv và copy lên WORKDIR, sau đó dùng RUN để cài đặt,
+  cờ --system  để cho biết là chúng ta sẽ tìm virtual environment để cài các package, do đó, cờ này là bắt buộc.</li>
+  <li>Và cuối cùng là Copy project, dấu . nghĩa là thư mục hiện tại, chúng ta sẽ copy thư mục hiện tại lên /code.
+  <br>Chúng ta copy 2 lần: lần đầu chỉ copy Pipfile với Pipfile.lock, sau đó là copy toàn bộ thư mục hiện tại là vì
+  câu lệnh của Docker sẽ thực hiện từ trên xuống, phần Pipfile thì ít thay đổi nên tách riêng, phần còn lại thì
+  thay đổi nhiều lần.</li>
+</ul>
+<br>Tới đây là đã xây dựng xong Dockerfile, chúng ta có thể build image này sử dụng lệnh <mark>docker build</mark>.
+<br>
 {% highlight python %}
-
+$ docker build .
+Sending build context to Docker daemon 154.1kB
+Step 1/7 : FROM python:3.7
+...
+Step 7/7 : COPY . /code/
+---> a48b2acb1fcc
+Successfully built a48b2acb1fcc
 {% endhighlight %}
-
+<br>
+<br>
 
 
 
