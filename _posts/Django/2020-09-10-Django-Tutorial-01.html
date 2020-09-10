@@ -23,7 +23,40 @@ Nội dung phần này:
 Thông thường khi tạo một Django project thì database mặc định là SQLite, nhưng thực tế để lên production
 hiếm khi nào người ta sử dụng SQLite, người ta hay sử dụng PostgreSQL.
 <br>(Theo mình quan sát thấy thì Python dev thích PostgreSQL, Java dev thì thích MySQL)
+<br>Tutorial này sẽ tạo Docker có chứa PostgreSQL, giới thiệu để đi tiếp cho các tutorial sau.
 
+<h3>Cài đặt</h3>
+
+{% highlight python %}
+$ mkdir postgresql && cd postgresql # Tạo folder làm việc và vào folder
+
+$ pipenv install django==2.2.7 # Cài đặt django bằng pipenv
+
+$ pipenv shell # Vào môi trường
+
+(postgresql) $ django-admin startproject postgresql_project . # Tạo project, lưu ý dấu . ở cuối câu lệnh
+
+(postgresql) $ python manage.py migrate # migrate
+
+(postgresql) $ python manage.py runserver # runserver
+{% endhighlight %}
+
+Sau đó, bật trình duyệt vào trang http://127.0.0.1:8000/ thấy dòng "The install worked successfully! Congratulations!"
+là OK.
+<br> Chúng ta ấn Ctrl + C để để dừng, và dùng lệnh <strong>ls</strong> để xem các file và directory.
+
+{% highlight python %}
+(postresql) $ ls
+
+Pipfile Pipfile.lock db.sqlite3 manage.py postgresql_proje
+{% endhighlight %}
+
+<h3>Docker</h3>
+Bây giờ, chúng ta sẽ thoát ra và tạo <mark>Dockerfile</mark> và <mark>docker-compose.yml</mark>.
+
+{% highlight python %}
+
+{% endhighlight %}
 
 
 {% highlight python %}
@@ -45,6 +78,26 @@ hiếm khi nào người ta sử dụng SQLite, người ta hay sử dụng Post
 {% endhighlight %}
 
 
+
+
+{% highlight python %}
+
+{% endhighlight %}
+
+
+
+
+{% highlight python %}
+
+{% endhighlight %}
+
+
+
+
+{% highlight python %}
+
+{% endhighlight %}
+
 {% highlight python %}
 
 {% endhighlight %}
@@ -62,8 +115,6 @@ hiếm khi nào người ta sử dụng SQLite, người ta hay sử dụng Post
 {% highlight python %}
 
 {% endhighlight %}
-
-
 
 
 {% highlight python %}
