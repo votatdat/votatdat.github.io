@@ -48,7 +48,6 @@ Sau đó, bật trình duyệt vào trang http://127.0.0.1:8000/ thấy dòng "T
 là OK.
 <br>Chúng ta ấn Ctrl + C để để dừng, và dùng lệnh <strong>ls</strong> để xem các file và directory.
 <br>
-<br>
 {% highlight python %}
 (postresql) $ ls
 
@@ -65,15 +64,14 @@ ví dụ/phiên bản của Image đó, <mark>Docker host</mark>  thì như là 
 chạy dưới cùng một host.
 <br>Bây giờ, chúng ta sẽ thoát ra và tạo <mark>Dockerfile</mark> và <mark>docker-compose.yml</mark>.
 <br>
-<br>
 {% highlight python %}
 (postgresql) $ exit
 $ touch Dockerfile
 $ touch docker-compose.yml
 {% endhighlight %}
-<br>
-<br>Bây giờ, chúng ta thiết lập các câu lệnh cho <mark>Dockerfile</mark>.
-<br>
+
+Tiếp theo, chúng ta thiết lập các câu lệnh cho <mark>Dockerfile</mark>.
+
 {% highlight python %}
 # Pull base image
 FROM python:3.8
